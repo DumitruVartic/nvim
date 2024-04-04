@@ -18,8 +18,8 @@ end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'tsserver',
-        'rust_analyzer',
+        --'tsserver',
+        --'rust_analyzer',
         'pylsp', -- see python-lsp-server , has linters and auto formateres builtin
     },
     handlers = {
