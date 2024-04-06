@@ -12,7 +12,15 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("USERPROFILE") .. "\\vimfiles\\undodir"
+--vim.opt.undodir = os.getenv("USERPROFILE") .. "\\vimfiles\\undodir"
+if vim.fn.has("win32") == 1 then
+    -- If running on Windows, use os.getenv("USERPROFILE")
+    vim.opt.undodir = os.getenv("USERPROFILE") .. "\\vimfiles\\undodir"
+else
+    -- For non-Windows systems, provide a default path
+    vim.opt.undodir = "~/.vim/undodir"
+end
+
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
